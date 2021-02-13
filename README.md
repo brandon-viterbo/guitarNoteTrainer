@@ -1,6 +1,6 @@
 # guitarNoteTrainer
 
-__author__ = Brandon Viterbo
+__author__ = "Brandon Viterbo"
 
 __license__ = "GPL"
 
