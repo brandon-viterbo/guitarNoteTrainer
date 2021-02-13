@@ -13,6 +13,7 @@ __status__ = "Production"
 A simple program that trains the user to identify notes on a guitar's fretboard.
 
 TODO:
+
 -In guitarTuner.py, make it so that tuning the guitar saves the names of equivalent notes, rather than just what the user inputs.
 
 -Scale notes across the fretboard.
