@@ -176,10 +176,6 @@
             "stringNo": 3,
             "notesOnString": [
                 [
-                    "F#",
-                    "Gb"
-                ],
-                [
                     "G"
                 ],
                 [
@@ -255,6 +251,10 @@
                 [
                     "D#",
                     "Eb"
+                ],
+                [
+                    "E",
+                    "Fb"
                 ]
             ]
         },
@@ -433,13 +433,6 @@
             "stringNo": 6,
             "notesOnString": [
                 [
-                    "D"
-                ],
-                [
-                    "D#",
-                    "Eb"
-                ],
-                [
                     "E",
                     "Fb"
                 ],
@@ -511,10 +504,18 @@
                 [
                     "B",
                     "Cb"
+                ],
+                [
+                    "C",
+                    "B#"
+                ],
+                [
+                    "C#",
+                    "Db"
                 ]
             ]
         }
     ],
-    "tuningText": "DADF#BE",
+    "tuningText": "EADGBE",
     "frets": 21
 }
