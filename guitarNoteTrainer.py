@@ -13,9 +13,7 @@ EXIT_INPUT = "E"
 """
 TODO:
 1)    Make input loops for start menu
-        -Tune Guitar?
         -Note identity test?
-        -Exit
 """
 
 with open(NOTE_FILE, "r") as readFile:
@@ -40,6 +38,9 @@ def menuLoop(notes):
         return identifyNotesLoop(notes)
     elif userInput == TUNE_INPUT:
         print("\nNow tuning guitar.")
+        print("Enter uppercase letters for notes, '#' for sharps and 'b'" + 
+            " for flats."
+        )
         guitarTuner.tuneGuitar(notes)
         print("\n")
         return menuLoop(notes)
@@ -57,5 +58,3 @@ def identifyNotesLoop(notes):
     return
 
 menuLoop(notes)
-
-exit()
