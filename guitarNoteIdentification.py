@@ -2,6 +2,8 @@
 
 import random
 
+GUITAR_FILE = "guitar.json"
+MAIN_FILE = "guitarNoteTrainer.py"
 
 def test(notes, guitarStrings, frets):
 	testLength = input("\nHow many questions long should this test to be? ")
@@ -28,7 +30,7 @@ def test(notes, guitarStrings, frets):
 def noteIdentification(notes, guitarStrings, frets):
 	"""
 	For string values in square brackets, make sure guitar is tuned by running
-	guitarNoteTrainer.py, then check guitar.json
+	MAIN_FILE, then check GUITAR_FILE
 	"""
 	string = random.choice(guitarStrings)
 	stringNo = string["stringNo"]

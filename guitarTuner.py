@@ -3,6 +3,8 @@
 import json
 import itertools
 
+MAIN_FILE = "guitarNoteTrainer.py"
+
 """
 The variable "notes" is a list of lists, where each sublist represents a note
 and each element in that sublist is a valid string name for that note. 
