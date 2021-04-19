@@ -1,31 +1,34 @@
 #!/usr/bin/env python
 
+# Python 3.7.4
+
 import guitarTuner
-import random
+import guitarNoteIdentification
 import json
 
 GUITAR_FILE = "guitar.json"
-NOTE_FILE = "equalTempermentNotes.json"
+NOTE_FILE = "notes.json"
 TUNE_INPUT = "T"
 ID_INPUT = "I"
 EXIT_INPUT = "E"
 
-"""
-TODO:
-1)    Make input loops for start menu
-        -Note identity test?
-"""
 
 with open(NOTE_FILE, "r") as readFile:
-    notes = json.load(readFile)["notes"]
+    NOTES = json.load(readFile)["notes"]
 
-def menuLoop(notes):
-    with open(GUITAR_FILE, "r") as readFile:
-        guitar = json.load(readFile)
-        guitarStrings = guitar["strings"]
-        guitarTuning = guitar["tuningText"]
+def main():
+    try:
+        with open(GUITAR_FILE, "r") as readFile:
+            guitar = json.load(readFile)
+            guitarStrings = guitar["strings"]
+            guitarTuning = guitar["tuningText"]
+            frets = guitar["frets"]
+    except:
+        print("\nBefore anything else, please tune your virtual guitar.")
+        guitarTuner.tuneGuitar(NOTES, GUITAR_FILE)
+        return main()
 
-    print("Welcome to guitar note trainer! Your guitar is tuned to {}.".format(
+    print("\nWelcome to guitar note trainer! Your guitar is tuned to {}.".format(
         guitarTuning)
     )
     userInput = input(("Press '{}' to test note identification, '{}' to " +  
@@ -35,26 +38,16 @@ def menuLoop(notes):
 
     userInput = userInput.upper()
     if userInput == ID_INPUT:
-        return identifyNotesLoop(notes)
+        guitarNoteIdentification.test(NOTES, guitarStrings, frets)
     elif userInput == TUNE_INPUT:
-        print("\nNow tuning guitar.")
-        print("Enter uppercase letters for notes, '#' for sharps and 'b'" + 
-            " for flats."
-        )
-        guitarTuner.tuneGuitar(notes)
-        print("\n")
-        return menuLoop(notes)
+        guitarTuner.tuneGuitar(NOTES, GUITAR_FILE)
     elif userInput == EXIT_INPUT:
-        print("Thank you for using Guitar Note Trainer!")
+        print("\nThank you for using Guitar Note Trainer!")
         print("See you later!")
+        exit()
     else:
         print("Invalid input. Please try again.\n")
-        return menuLoop(notes)
-    return
+    return main()
 
 
-def identifyNotesLoop(notes):
-    print("TODO: Test Note Identification.")
-    return
-
-menuLoop(notes)
+main()

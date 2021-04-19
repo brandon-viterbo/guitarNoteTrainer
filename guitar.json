@@ -1,4 +1,6 @@
 {
+    "tuningText": "EADGBE",
+    "frets": 21,
     "strings": [
         {
             "stringNo": 1,
@@ -515,7 +517,5 @@
                 ]
             ]
         }
-    ],
-    "tuningText": "EADGBE",
-    "frets": 21
+    ]
 }
