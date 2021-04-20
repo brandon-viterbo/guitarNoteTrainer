@@ -8,7 +8,7 @@ __version__ = "1.0"
 __maintainer__ = "Brandon Viterbo"
 __status__ = "Done"
 
-Usage: python guitarNoteTrainer.py, then follow input instructions.
+Usage: Run guitarNoteTrainer.py, then follow input instructions.
 
 Description: A simple command line program that anyone can use to train their note 
     recognition on a guitar's fretboard. The user may change the tuning of the
