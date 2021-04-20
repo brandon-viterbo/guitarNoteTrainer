@@ -42,13 +42,13 @@ def determineNotesOnString(openNoteNumber, notes, frets):
     notesOnString = [openNoteNumber]*(frets+1) # +1 accounts for the open note
     notesCycle = itertools.cycle(notes)
 
-    currentCycle = openNoteNumber
+    currentNote = openNoteNumber
     for i in range(openNoteNumber+1):
-        currentCycle = next(notesCycle)
+        currentNote = next(notesCycle)
     
     for i in range(0, frets+1):
-        notesOnString[i] = currentCycle
-        currentCycle = next(notesCycle)
+        notesOnString[i] = currentNote
+        currentNote = next(notesCycle)
     return notesOnString
 
 
@@ -58,21 +58,21 @@ def tuneGuitarPrompt(notes):
     the tuning of each string.
     """
     print("\nNow tuning guitar.")
-    stringNumber = getGuitarStringNoInput()
-    print("Your guitar has {} strings.".format(stringNumber))
+    numberOfStrings = getNumOfGuitarStringsInput()
+    print("Your guitar has {} strings.".format(numberOfStrings))
 
     print("Enter uppercase letters for notes, '#' for sharps and 'b'" + 
         " for flats.")
-    openNoteNumbers=[None]*stringNumber
-    tuningText=[None]*stringNumber
-    for guitarString in range(stringNumber):
-        inputNote, noteNumber = tuneGuitarStringInput(guitarString, notes)
-        openNoteNumbers[stringNumber-guitarString-1] = noteNumber
-        tuningText[stringNumber-guitarString-1] = inputNote
+    openNoteNumbers=[None]*numberOfStrings
+    tuningText=[None]*numberOfStrings
+    for guitarString in range(numberOfStrings):
+        openNote, noteNumber = tuneGuitarStringInput(guitarString, notes)
+        openNoteNumbers[numberOfStrings-guitarString-1] = noteNumber
+        tuningText[numberOfStrings-guitarString-1] = openNote
 
     tuningText = "".join(tuningText)
     print("From strings {} to 1, your guitar is tuned as {}.".format(
-        stringNumber, tuningText)
+        numberOfStrings, tuningText)
     )
 
     frets = fretNoInput()
@@ -109,16 +109,16 @@ def tuneGuitarStringInput(guitarString, notes):
         return tuneGuitarStringInput(guitarString, notes)
 
 
-def getGuitarStringNoInput():
+def getNumOfGuitarStringsInput():
     res = input("How many strings does your guitar have? ")
     try:
         res = int(res)
         if res < 1:
             print("Please enter a number greater than 0.")
-            return(getGuitarStringNoInput())
+            return(getNumOfGuitarStringsInput())
     except:
         print("Please enter a number.")
-        return getGuitarStringNoInput()
+        return getNumOfGuitarStringsInput()
     return res
 
 
